@@ -1,0 +1,28 @@
+{
+  "name": "autospace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "format": "prettier \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path .gitignore",
+    "format:check": "npm run format -- --check",
+    "format:write": "npm run format -- --write",
+    "tsc": "npm run tsc --workspaces --if-present",
+    "validate": "npm run format:write && npm run tsc && npm run lint && npm run build",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10"
+  },
+  "dependencies": {
+    "husky": "^9.1.7"
+  }
+}
